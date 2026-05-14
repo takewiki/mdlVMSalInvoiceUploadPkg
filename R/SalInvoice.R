@@ -22,6 +22,32 @@ SalInvoice_select<- function(erp_token,FInvoice,FStartDate,FEndDate) {
   return(res)
 }
 
+
+
+#' 查询SalInvoice——sum
+#'
+#' @param token
+
+#' @param token
+#'
+#' @param FStartDate
+#' @param FEndDate
+#' @param FInvoice
+#'
+#' @return 无返回值
+#' @export
+#'
+#' @examples
+#' SalInvoice_select_sum()
+SalInvoice_select_sum<- function(erp_token,FInvoice,FStartDate,FEndDate) {
+
+  sql=paste0("exec rds_proc_vm_SalInvoice_sum_view  '",FInvoice,"','",FStartDate,"','",FEndDate,"'  ")
+
+  res=tsda::sql_select2(token = erp_token,sql = sql)
+  return(res)
+}
+
+
 #' 上传发票
 #'
 #' @param token
