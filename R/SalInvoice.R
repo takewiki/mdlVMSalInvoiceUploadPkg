@@ -24,6 +24,30 @@ SalInvoice_select<- function(erp_token,FInvoice,FStartDate,FEndDate) {
 
 
 
+#' 删除SalInvoice
+#'
+#' @param token
+
+#' @param FInvoice
+#'
+#' @param erp_token
+#'
+#' @return 无返回值
+#' @export
+#'
+#' @examples
+#' SalInvoice_delete()
+SalInvoice_delete<- function(erp_token,FInvoice) {
+
+  sql=paste0("exec rds_proc_vm_SalInvoice_delete  '",FInvoice,"' ")
+
+  res=tsda::sql_update2(token = erp_token,sql_str =  sql)
+  return(res)
+}
+
+
+
+
 #' 查询SalInvoice——sum
 #'
 #' @param token
